@@ -10,7 +10,7 @@
         :rules="formRules"
         v-loading="formLoading"
       >
-        <el-form-item>
+        <el-form-item prop="name">
           <el-input
             v-model="formModel.name"
             placeholder="请输入姓名"
@@ -31,7 +31,7 @@ import { ElConfigProvider } from "element-plus";
 import zhCn from "element-plus/lib/locale/lang/zh-cn";
 const locale = zhCn;
 import { ref } from "vue";
-import type { ElForm } from "element-plus";
+import type { ElForm, ElFormContext } from "element-plus";
 import { ElMessage } from "element-plus";
 
 const defaultModel = () => ({
