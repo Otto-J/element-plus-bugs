@@ -4,7 +4,12 @@
 
     <main>
       {{ formModel }}
-      <el-form ref="formRef" :model="formModel" :rules="formRules">
+      <el-form
+        ref="formRef"
+        :model="formModel"
+        :rules="formRules"
+        v-loading="formLoading"
+      >
         <el-form-item>
           <el-input
             v-model="formModel.name"
@@ -59,13 +64,18 @@ const formRules: InstanceType<typeof ElForm>["rules"] = {
   ],
 };
 const formRef = ref<InstanceType<typeof ElForm>>();
+const formLoading = ref(false);
 const formSubmit = () => {
   console.log(3);
-  ElMessage.success("1");
+  formLoading.value = true;
 
   formRef.value?.validate((valid) => {
     console.log(valid);
     ElMessage.success("3");
+
+    setTimeout(() => {
+      formLoading.value = false;
+    }, 3000);
   });
 };
 </script>
