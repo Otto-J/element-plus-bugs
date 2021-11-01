@@ -1,0 +1,11 @@
+// styles/element/index.scss
+/* 只需要覆盖你需要的变量 */
+@forward "element-plus/theme-chalk/src/common/var.scss" with (
+  $colors: (
+    "primary": (
+      "base": rgb(0, 6, 95),
+    ),
+  ),
+);
+
+@import "element-plus/theme-chalk/src/index.scss";
