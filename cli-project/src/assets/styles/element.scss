@@ -1,0 +1,21 @@
+@forward "element-plus/theme-chalk/src/common/var.scss" with (
+  $colors: (
+    'primary': (
+      'base': #1063ff
+    ),
+    'danger': (
+      'base': #FF1A3B
+    )
+  ),
+  $table: (
+    "header-background-color": #EFF1F7,
+    "header-font-color": #33353B
+  ),
+  $pagination: (
+    "button-width": 30px,
+    "button-height": 30px
+  ),
+  $dialog: (
+    'padding-primary': 12px,
+  ),
+);
