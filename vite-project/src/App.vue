@@ -10,14 +10,26 @@
         :rules="formRules"
         v-loading="formLoading"
       >
-        <el-form-item prop="name">
+        <el-form-item label="name" prop="name">
           <el-input
             v-model="formModel.name"
             placeholder="请输入姓名"
           ></el-input>
         </el-form-item>
-        <el-form-item>
+        <el-form-item label="age">
           <el-input v-model="formModel.age" placeholder="age" />
+        </el-form-item>
+        <el-form-item label="date range">
+          <!-- 这个有bug -->
+          <!--  Component is missing template or render function.  -->
+          <el-date-picker
+            v-model="value1"
+            type="daterange"
+            range-separator="To"
+            start-placeholder="Start date"
+            end-placeholder="End date"
+          >
+          </el-date-picker>
         </el-form-item>
       </el-form>
       <el-button type="primary" @click="formSubmit">提交</el-button>
@@ -33,6 +45,8 @@ const locale = zhCn;
 import { ref } from "vue";
 import type { ElForm, ElFormContext } from "element-plus";
 import { ElMessage } from "element-plus";
+
+const value1 = ref("");
 
 const defaultModel = () => ({
   name: "",

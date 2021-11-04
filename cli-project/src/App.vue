@@ -19,6 +19,18 @@
         <el-form-item>
           <el-input v-model="formModel.age" placeholder="age" />
         </el-form-item>
+        <el-form-item>
+          <!-- 这个有bug -->
+          <!--  Component is missing template or render function.  -->
+          <el-date-picker
+            v-model="value1"
+            type="daterange"
+            range-separator="To"
+            start-placeholder="Start date"
+            end-placeholder="End date"
+          >
+          </el-date-picker>
+        </el-form-item>
       </el-form>
       <el-button type="primary" @click="formSubmit">提交</el-button>
     </main>
@@ -33,6 +45,8 @@ const locale = zhCn;
 import { ref } from "vue";
 import type { ElForm } from "element-plus";
 import { ElMessage } from "element-plus";
+
+const value1 = ref("");
 
 const defaultModel = () => ({
   name: "",
